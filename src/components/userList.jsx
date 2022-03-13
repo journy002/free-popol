@@ -1,6 +1,13 @@
 import React from "react";
+import { useEffect } from "react";
 
 function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log("화면 나타남");
+    return () => {
+      console.log("사라짐");
+    };
+  }, [user]);
   const { name, email } = user;
   return (
     <div>
