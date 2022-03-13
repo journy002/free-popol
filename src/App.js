@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import InputSample from "./components/inputSample";
+import InputSamples from "./components/inputSamples";
+import { useState } from "react";
+import UserList from "./components/userList";
 
 function App() {
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      name: "oms",
+      email: "oms@oms@.com",
+    },
+    {
+      id: 2,
+      name: "oms2",
+      email: "oms2@oms@.com",
+    },
+    {
+      id: 3,
+      name: "oms3",
+      email: "oms3@om3s@.com",
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <InputSamples />
+      <UserList users={users} />
     </div>
   );
 }
