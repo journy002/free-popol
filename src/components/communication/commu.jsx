@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "../communication/style.css";
 import { Link, useParams } from "react-router-dom";
+import { useRef } from "react";
 
 function ShowContent({ commu }) {
   return (
     <>
       <div>
         <strong>{commu.username}</strong>
-        <p>{commu.contents}</p>
+        <span>{commu.contents}</span>
       </div>
     </>
   );
@@ -24,6 +25,8 @@ function ShowContents({ commus }) {
 }
 
 function Commu() {
+  const nextId = useRef(3);
+
   const [input, setInputs] = useState({
     name: "",
     texts: "",
@@ -51,7 +54,27 @@ function Commu() {
       ...input,
       [name]: value,
     });
-    console.log(value);
+  };
+
+  const onInsert = (username, contents) => {
+    const comm = {
+      id: nextId.current,
+      username,
+      contents,
+    };
+
+    setCommus((commus) => commus.concat(comm));
+    nextId.current += 1;
+  };
+
+  const onSubmit = (e) => {
+    onInsert(input.name, input.texts);
+    setInputs({
+      name: "",
+      texts: "",
+    });
+    console.log("ssss");
+    e.preventDefault();
   };
 
   return (
@@ -67,7 +90,7 @@ function Commu() {
           <div className="commu_sec">
             <ShowContents commus={commus} />
           </div>
-          <form className="commu_form">
+          <form onSubmit={onSubmit} className="commu_form">
             <input
               type="text"
               className="commu_name"
