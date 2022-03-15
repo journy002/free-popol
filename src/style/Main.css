@@ -9,9 +9,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-}
-
 .container ul {
   display: flex;
   justify-content: center;

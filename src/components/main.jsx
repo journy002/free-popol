@@ -9,7 +9,9 @@ function Main() {
     <div className="container">
       <ul>
         <li>
-          <Link to="/commu">자랑방</Link>
+          <Link to="/showMyDog" className="show_link">
+            자랑방
+          </Link>
         </li>
         <li>
           <Link to="/commu">소통방</Link>

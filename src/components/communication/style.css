@@ -1,0 +1,51 @@
+.commu_container {
+  text-align: center;
+}
+
+.commu_container .commu_title {
+  padding: 20px 5px;
+  width: 100%;
+}
+
+.commu_container .commu_title .main_link {
+  padding: 10px;
+  color: #000000;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.commu_container .commu_box {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  min-height: 500px;
+  background-color: lavender;
+  border-radius: 8px;
+}
+
+.commu_container .commu_box .commu_sec {
+  width: 100%;
+  height: 454px;
+  background-color: #fff;
+}
+
+.commu_container .commu_box .commu_form {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+}
+
+.commu_container .commu_box .commu_form .commu_name {
+  width: 10%;
+}
+
+.commu_container .commu_box .commu_form .commu_text {
+  width: 62%;
+}
+
+.commu_container .commu_box .commu_form .commu_btn {
+  width: 10%;
+}
