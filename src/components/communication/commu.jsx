@@ -7,8 +7,8 @@ function ShowContent({ commu }) {
   return (
     <>
       <div className="show_box">
-        <strong>{commu.username}</strong>
-        <span>{commu.contents}</span>
+        <p className="show_name">{commu.username}</p>
+        <span className="show_contents">{commu.contents}</span>
       </div>
     </>
   );
@@ -19,6 +19,27 @@ function ShowContents({ commus }) {
     <>
       {commus.map((commu) => (
         <ShowContent key={commu.id} commu={commu} />
+      ))}
+    </>
+  );
+}
+
+function ShowMyContent({ me }) {
+  return (
+    <>
+      <div className="show_box">
+        <p className="show_name">{me.name}</p>
+        <span className="show_contents">{me.text}</span>
+      </div>
+    </>
+  );
+}
+
+function ShowMyContents({ my }) {
+  return (
+    <>
+      {my.map((me) => (
+        <ShowMyContent key={me.id} me={me} />
       ))}
     </>
   );
@@ -78,6 +99,56 @@ function Commu() {
   };
   /* User[e] */
 
+  /* me[s] */
+  const myId = useRef(2);
+  const [myInput, setMyInput] = useState({
+    myName: "",
+    myText: "",
+  });
+
+  const [my, setMy] = useState([
+    {
+      id: 1,
+      name: "ksa",
+      text: "Hello~?",
+    },
+  ]);
+
+  const { myName, myText } = myInput;
+
+  const myChange = (e) => {
+    const { name, value } = e.target;
+
+    setMyInput({
+      ...myInput,
+      [name]: value,
+    });
+  };
+
+  const myInsert = (myName, myText) => {
+    const newMe = {
+      id: myId.current,
+      name: myName,
+      text: myText,
+    };
+
+    setMy((my) => my.concat(newMe));
+    myId.current += 1;
+  };
+
+  const mySubmit = (e) => {
+    myInsert(myInput.myName, myInput.myText);
+
+    setMyInput({
+      myName: "",
+      myText: "",
+    });
+
+    e.preventDefault();
+  };
+
+  /* me[e] */
+
   return (
     <>
       <div className="commu_container">
@@ -92,7 +163,9 @@ function Commu() {
             <div className="commu_user">
               <ShowContents commus={commus} />
             </div>
-            <div className="commu_my"></div>
+            <div className="commu_my">
+              <ShowMyContents my={my} />
+            </div>
           </div>
           <div className="commit_texts">
             <div className="user">
@@ -121,22 +194,22 @@ function Commu() {
             </div>
             <div className="me">
               <span>나:</span>
-              <form onSubmit={onSubmit} className="commu_form">
+              <form onSubmit={mySubmit} className="commu_form">
                 <input
                   type="text"
                   className="commu_name"
-                  name="name"
-                  value={name}
+                  name="myName"
+                  value={myName}
+                  onChange={myChange}
                   placeholder="name"
-                  onChange={onChange}
                 />
                 <input
                   type="text"
                   className="commu_text"
-                  name="texts"
-                  value={texts}
+                  name="myText"
+                  value={myText}
+                  onChange={myChange}
                   placeholder="text"
-                  onChange={onChange}
                 />
                 <button type="submit" className="commu_btn">
                   Click

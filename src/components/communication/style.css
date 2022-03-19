@@ -47,6 +47,24 @@
   padding: 20px 0;
 }
 
+.commu_container .commu_box .commu_sec .commu_user {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.commu_container .commu_box .commu_sec .commu_user .show_box {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.commu_container .commu_box .commu_sec .commu_user .show_box .show_name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 .commu_container .commu_box .commit_texts {
   display: flex;
   justify-content: space-between;
