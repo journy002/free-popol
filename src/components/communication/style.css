@@ -32,10 +32,7 @@
 }
 
 .commu_container .commu_box .commu_form {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
+  display: inline-block;
 }
 
 .commu_container .commu_box .commu_form .commu_name {
@@ -46,6 +43,11 @@
   width: 62%;
 }
 
-.commu_container .commu_box .commu_form .commu_btn {
-  width: 10%;
+.commu_container .commu_box .commu_sec {
+  padding: 20px 0;
+}
+
+.commu_container .commu_box .commit_texts {
+  display: flex;
+  justify-content: space-between;
 }

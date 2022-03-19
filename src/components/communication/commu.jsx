@@ -6,7 +6,7 @@ import { useRef } from "react";
 function ShowContent({ commu }) {
   return (
     <>
-      <div>
+      <div className="show_box">
         <strong>{commu.username}</strong>
         <span>{commu.contents}</span>
       </div>
@@ -25,6 +25,7 @@ function ShowContents({ commus }) {
 }
 
 function Commu() {
+  /* User[s] */
   const nextId = useRef(3);
 
   const [input, setInputs] = useState({
@@ -73,9 +74,9 @@ function Commu() {
       name: "",
       texts: "",
     });
-    console.log("ssss");
     e.preventDefault();
   };
+  /* User[e] */
 
   return (
     <>
@@ -88,29 +89,61 @@ function Commu() {
         </div>
         <div className="commu_box">
           <div className="commu_sec">
-            <ShowContents commus={commus} />
+            <div className="commu_user">
+              <ShowContents commus={commus} />
+            </div>
+            <div className="commu_my"></div>
           </div>
-          <form onSubmit={onSubmit} className="commu_form">
-            <input
-              type="text"
-              className="commu_name"
-              name="name"
-              value={name}
-              placeholder="name"
-              onChange={onChange}
-            />
-            <input
-              type="text"
-              className="commu_text"
-              name="texts"
-              value={texts}
-              placeholder="text"
-              onChange={onChange}
-            />
-            <button type="submit" className="commu_btn">
-              Click
-            </button>
-          </form>
+          <div className="commit_texts">
+            <div className="user">
+              <span>상대방: </span>
+              <form onSubmit={onSubmit} className="commu_form">
+                <input
+                  type="text"
+                  className="commu_name"
+                  name="name"
+                  value={name}
+                  placeholder="name"
+                  onChange={onChange}
+                />
+                <input
+                  type="text"
+                  className="commu_text"
+                  name="texts"
+                  value={texts}
+                  placeholder="text"
+                  onChange={onChange}
+                />
+                <button type="submit" className="commu_btn">
+                  Click
+                </button>
+              </form>
+            </div>
+            <div className="me">
+              <span>나:</span>
+              <form onSubmit={onSubmit} className="commu_form">
+                <input
+                  type="text"
+                  className="commu_name"
+                  name="name"
+                  value={name}
+                  placeholder="name"
+                  onChange={onChange}
+                />
+                <input
+                  type="text"
+                  className="commu_text"
+                  name="texts"
+                  value={texts}
+                  placeholder="text"
+                  onChange={onChange}
+                />
+                <button type="submit" className="commu_btn">
+                  Click
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </>
