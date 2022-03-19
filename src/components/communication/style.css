@@ -14,6 +14,10 @@
   border-radius: 6px;
 }
 
+.commu_container .commu_title p {
+  margin-top: 26px;
+}
+
 .commu_container .commu_box {
   position: relative;
   margin: 0 auto;
@@ -45,11 +49,12 @@
 
 .commu_container .commu_box .commu_sec {
   padding: 20px 0;
+  text-align: left;
+  overflow: auto;
 }
 
 .commu_container .commu_box .commu_sec .commu_user {
   margin-left: 20px;
-  text-align: left;
 }
 
 .commu_container .commu_box .commu_sec .commu_user .show_box {
@@ -63,6 +68,23 @@
 .commu_container .commu_box .commu_sec .commu_user .show_box .show_name {
   font-size: 18px;
   font-weight: 700;
+}
+
+.commu_container .commu_box .commu_sec .commu_user .show_box .show_contents {
+  display: block;
+  margin-top: 6px;
+}
+
+.commu_container .commu_box .commu_sec .commu_my {
+  margin-right: 20px;
+}
+
+.commu_container .commu_box .commu_sec .commu_my .show_box {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
 .commu_container .commu_box .commit_texts {
