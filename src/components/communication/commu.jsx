@@ -84,9 +84,11 @@ function Commu() {
     <>
       <div className="commu_container">
         <div className="commu_title">
-          <Link to="/" className="main_link">
-            메인
-          </Link>
+          <div className="link_box">
+            <Link to="/" className="main_link">
+              메인
+            </Link>
+          </div>
           <p>자유롭게 사람들과 대화를 해보세요!</p>
         </div>
         <div className="commu_box">
